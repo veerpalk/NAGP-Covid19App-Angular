@@ -1,0 +1,242 @@
+.custom-header {
+    min-height: 64px;
+    padding: 8px 30px 0;
+    float: right;
+    padding-left: 0px;
+   
+  }
+.mat-raised-button{
+    color:white;
+    background-color: #082c55;;
+  }
+mat-tab-group{
+    padding-left: 50px;
+    padding-bottom: 50px;
+    padding-right: 5px;
+   // max-height: 800px;
+}
+
+  
+// a{
+//     text-decoration: none;
+//     padding: 15px;
+//     color: #082c55;
+// }
+
+// .news-full :hover{
+//     background-color:lightgrey ;
+// }
+// .news{
+//     padding: 15px;
+//     height: 200px;
+// }
+// .mat-card-image {
+//     width: 200px;
+//     height: 170px;
+//     float: left;
+//     padding: 16px;
+// }
+
+// .news-mat-card{
+//     width: 85%;
+//     margin-left: 180px;
+//     padding: 10px;
+// }
+// .mat-card-subtitle{
+//     float: left;
+// }
+// .mat-icon{
+//     margin-top: 2px;
+// }
+
+
+// .news-delete{
+//     padding-right: 0px;
+// }
+// .news-add{
+//     margin-top: 50px;
+//     padding: 0px;
+//     float: right;
+//     margin-right: 15px;
+// }
+// .news-title :hover{
+//     color: #0259cc;
+//     cursor: pointer;
+// }
+// a:hover{
+//     background-color: white;
+//     color: #0259cc;
+   
+// }
+
+/*=========================================================
+	GENERAL
+===========================================================*/
+/*----------------------------*\
+	typography
+\*----------------------------*/
+body {
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #3d455c;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    color: #212631;
+    margin: 0px 0px 15px;
+}
+h1 {
+    font-size: 34px;
+}
+h2 {
+    font-size: 28px;
+}
+h3 {
+    font-size: 23px;
+}
+h4 {
+    font-size: 16px;
+}
+a {
+    font-weight: 600;
+    color: #212631;
+    text-decoration: none;
+}
+a:hover, a:focus{
+    color: #212631;
+    text-decoration: underline;
+    outline: none;
+}
+p {
+    margin: 0px 0px 20px;
+}
+
+/*----------------------------*\
+   post row
+\*----------------------------*/
+.post.post-row:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+img {
+   width: 300px;
+//    padding-left: 30%;
+//    padding-right: 30%;
+   
+}
+.post.post-row  {
+  
+    float: left;
+}
+.conta
+.post.post-row .post-body {
+    margin-left: calc(40% + 30px);
+}
+.post.post-row .post-meta {
+    margin-top: 0px;
+}
+.post.post-row .post-title {
+    margin-bottom: 15px;
+}
+
+.container
+{
+     margin-left: 200px !important;
+    // margin-right: 100px !important;
+}
+
+.text{
+    margin-top: -6px !important;
+    color:white;
+    font-size: 15px;
+    margin-left: -0px;
+    font-family: cursive
+  
+  }
+  
+  .date{
+    margin-left: 20%;
+  }
+  hr{
+    margin-top: 10px !important;
+    margin-bottom: 0px !important;
+    font-weight: 800;
+  }
+  .abcd{
+    cursor: pointer;
+    color:lightgrey;}
+  .abc:hover .abcd{
+  color:black;
+  }
+  .btn{
+    height:90px;
+    width:65px;
+    // background-color: #082c55;
+     background-image: url(../../../assets/images/img5.jpg);
+    background-size: cover;
+    text-decoration-color: white;
+    border:none;
+    margin-top: 10px;
+  
+  }
+
+  
+  
+  .text1{
+  
+    color: white !important;
+    font-size: 40px !important;
+    margin-bottom: 25% !important;
+    margin-top: -25px !important;
+    font-weight: 700;
+  
+  
+  
+  
+  
+  }
+
+  hr{
+    margin-top: 10px !important;
+    margin-bottom: 0px !important;
+    font-weight: 800;
+  }
+  .abcd{
+    cursor: pointer;
+    color:lightgrey;}
+  .abc:hover .abcd{
+  color:black;
+  }
+
+  
+  .abc:hover .edit {
+    visibility: visible;
+    color: black;
+    cursor: pointer;
+  }
+  
+  .title{
+    font-family: Algerian;
+  }
+
+  .edit 
+  {
+      margin-top: 10px;;
+  }
+  .delete
+  {
+      margin-left: -25px;
+      margin-top: 10px;
+  }
+  
+  .description{
+      margin-top: 5px;
+      font-weight: 500;
+
+  }

@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/dist/css/bootstrap.css";
+//@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "../src/my-custom-theme.scss";
+@import "../node_modules/ngx-toastr/toastr.css";
+
+
+.mat-card, .mat-card-actions { text-align: -webkit-center; }    
+mat-card { max-width: 100%; text-align: center; } 
+mat-toolbar-row { justify-content: space-between; }
+//mat-raised-button { outline: none !important }   
+button:focus{outline: none; border:0;}
+.toast-bottom-right {
+    bottom: 5em;
+    right: 12px;
+}
+html, body {
+    height: 100%;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #3d455c;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+.example::-webkit-scrollbar {
+    display: none;
+  }
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    color: #212631;
+    margin: 0px 0px 15px;
+}
+h1 {
+    font-size: 34px;
+}
+h2 {
+    font-size: 28px;
+}
+h3 {
+    font-size: 23px;
+}
+h4 {
+    font-size: 16px;
+}

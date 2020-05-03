@@ -1,0 +1,59 @@
+
+
+<!-- /post -->
+
+
+
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8" style="padding-bottom: 30px;" *ngIf="news">
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="date">
+                    <button class=btn>
+                        <p class=text>{{news.month}}</p>
+                        <p class=text1>{{news.date}}</p>
+                    </button>
+                </div><br>
+            </div>
+
+            <div class="col-sm-8">
+                <hr class="titlerule">
+                <p class="title" style="text-align: center; padding: 0px; margin-top: 10px;">
+                    <b>{{news.title}}</b>
+                </p>
+                <hr class="titlerule"><br>
+                <img src={{news.image}} style="width:100%">
+                <p class="description">{{news.summary}} </p>
+
+                <button mat-raised-button (click)="goBack()" [routerLink]="['/view', news.id]">Back</button>
+            </div>
+            <div class="col-sm-1">
+                <mat-icon class="edit" [routerLink]="['/news/edit', news.id]">edit</mat-icon>
+
+
+            </div>
+
+            <div class="col-sm-1">
+
+                <mat-icon class="delete" (click)="deleteNews()">delete</mat-icon>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2">
+
+    </div>
+
+    
+
+
+
+
+
+</div>
+
+
+
+

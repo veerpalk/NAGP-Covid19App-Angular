@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+    <span>COVID-19 Information Board</span>
+    <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+        <ul fxLayout  fxLayoutGap="30px" class="custom-nav-items">
+            <li><a routerLink="/dashboard" routerLinkActive='active'>Dashboard</a></li>
+            <li><a routerLink="/news" routerLinkActive='active'>Latest news</a></li>
+            <li><a routerLink="/precautions" routerLinkActive='active'>Precautions</a></li>
+            <li><a  *ngIf="!(isLoggedIn | async)" routerLink="/login" routerLinkActive='active'>Login</a></li>
+            <li><a *ngIf="isLoggedIn | async" routerLink="" (click)="onLogout()">Logout</a></li>
+        </ul>
+    </div>
+  </mat-toolbar>

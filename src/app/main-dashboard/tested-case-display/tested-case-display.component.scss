@@ -1,0 +1,41 @@
+
+.custom-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.custom-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-header-cell{
+  color: #082c55;
+  font-size: 16px;
+  font-weight: bold;
+  background-color:rgba(211, 211, 211, 0.438);
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 550px;
+}
+
+.mat-footer-cell{
+  font-weight: bold;
+  background-color:rgba(211, 211, 211, 0.267);
+}
+
+.element-row{
+  cursor: pointer;
+  position: relative;
+}
+.element-row:hover {
+  background: #f5f5f5;
+}

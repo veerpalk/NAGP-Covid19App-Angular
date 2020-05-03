@@ -1,0 +1,88 @@
+
+
+    <!-- row -->
+
+    <div class="row" style="margin-top: 20px; ">
+
+
+
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+           
+
+        <div class="row">
+            <!-- post -->
+            <div class="col-md-6" style="padding-bottom: 30px;" *ngFor="let news of allNews">
+
+                <!-- <a *ngIf="news.image" ><img src={{news.image}} alt=""></a>
+                    <div class="post-body">
+                        <div class="post-meta">
+                            <span class="post-date " style="font-size: 16px;">{{news.createdDate | date}}</span>
+                        </div>
+                        <h3 class="post-title"><a  [routerLink]="['/view', news.id]">{{news.title}}</a></h3>
+                        <h4>{{news.description}}</h4>
+                        <button mat-raised-button [routerLink]="['/view', news.id]">Read More</button>
+                        <mat-icon class="news-edit"  style="padding-left: 150px;" [routerLink]="['/news/edit', news.id]">edit</mat-icon>
+                        <mat-icon class="news-delete" style="padding-left: 30px;"  (click)="deleteNews(news.id)">delete</mat-icon>
+                              
+                    </div> -->
+
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="date">
+                            <button class=btn>
+                                <p class=text>{{news.month}}</p>
+                                <p class=text1>{{news.date}}</p>
+                            </button>
+                        </div><br>
+                    </div>
+
+                    <div class="col-sm-8">
+                        <hr class="titlerule">
+                        <p class="title" style="text-align: center; padding: 0px; margin-top: 10px;">
+                            <b>{{news.title}}</b>
+                        </p>
+                        <hr class="titlerule"><br>
+                        <img src={{news.image}} style="width:100%">
+                        <p class="description">{{news.description}} </p>
+                    </div>
+                    <div class="col-sm-1" *ngIf="isLoggedIn | async">
+                        <mat-icon class="edit" [routerLink]="['/news/edit', news.id]">edit</mat-icon>
+
+
+                    </div>
+
+                    <div class="col-sm-1" *ngIf="isLoggedIn | async">
+
+                        <mat-icon class="delete" (click)="deleteNews(news.id)">delete</mat-icon>
+
+                    </div>
+
+
+
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <button mat-raised-button [routerLink]="['/view', news.id]">Read More</button>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <!-- /post -->
+
+
+        </div>
+        </div>
+        <div class="col-md-1" *ngIf="isLoggedIn | async">
+            <button style="margin-top: 15px;" mat-raised-button [routerLink]="['/news/add']">Add News</button>
+        </div>
+    </div>
+
+    <!-- /row -->
+
+<!-- /container -->

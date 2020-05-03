@@ -1,0 +1,63 @@
+<div class="custom-container mat-elevation-z8">
+    <div class="custom-header">
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
+        </mat-form-field>
+    </div>
+
+    <mat-table #table [dataSource]="dataSource" matSort >
+        <ng-container matColumnDef="state">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> State </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.state}} </mat-cell>
+            <mat-footer-cell *matFooterCellDef> {{covidStateWiseTotalCases.state}} </mat-footer-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="statecode">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> State Code </mat-header-cell>
+            <mat-cell  *matCellDef="let row"> {{row.statecode}} </mat-cell>
+            <mat-footer-cell *matFooterCellDef> {{covidStateWiseTotalCases.statecode}} </mat-footer-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="active">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Active</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.active}} </mat-cell>
+            <mat-footer-cell *matFooterCellDef> {{covidStateWiseTotalCases.active}} </mat-footer-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="confirmed">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Confirmed</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.confirmed}} </mat-cell>
+            <mat-footer-cell *matFooterCellDef> {{covidStateWiseTotalCases.confirmed}} </mat-footer-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="recovered">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Recovered</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.recovered}}  </mat-cell>
+            <mat-footer-cell *matFooterCellDef> {{covidStateWiseTotalCases.recovered}} </mat-footer-cell>
+        </ng-container>
+ 
+        <ng-container matColumnDef="deaths">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Deaths </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.deaths}} </mat-cell>
+            <mat-footer-cell *matFooterCellDef> {{covidStateWiseTotalCases.deaths}} </mat-footer-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="lastupdatedtime">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Last Updated Time </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{(row.lastupdatedtime?row.lastupdatedtime:'-')}} </mat-cell>
+            <mat-footer-cell *matFooterCellDef> {{covidStateWiseTotalCases.lastupdatedtime | date:'medium'}} </mat-footer-cell>
+        </ng-container>
+
+
+        <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+        <mat-row    class="element-row" 
+        *matRowDef="let row; columns: displayedColumns;"  
+        [routerLink]="['/viewCases', row.state]" ></mat-row>
+        <mat-row *matFooterRowDef="displayedColumns; sticky: true"></mat-row>
+    </mat-table>
+
+    <mat-paginator showFirstLastButtons
+    [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

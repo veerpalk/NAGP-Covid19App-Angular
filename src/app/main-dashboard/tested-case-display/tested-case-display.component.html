@@ -1,0 +1,74 @@
+<div class="custom-container mat-elevation-z8">
+    <div class="custom-header">
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
+        </mat-form-field>
+    </div>
+
+    <mat-table #table [dataSource]="dataSource" matSort>
+       
+        <!-- <ng-container matColumnDef="samplereportedtoday">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Sample Reported Today </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.samplereportedtoday}} </mat-cell>
+        </ng-container> -->
+
+       
+        <ng-container matColumnDef="totalsamplestested">
+            <mat-header-cell *matHeaderCellDef mat-sort-header > Total <br>Samples Tested </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.totalsamplestested?row.totalsamplestested:"-"}} </mat-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="totalindividualstested">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Total <br>Individuals Tested </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.totalindividualstested?row.totalindividualstested:"-"}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="totalpositivecases">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Total <br>Positive Cases </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.totalpositivecases?row.totalpositivecases:"-"}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="individualstestedperconfirmedcase">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Individuals Tested <br> Confirmed Case (%) </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{(row.individualstestedperconfirmedcase?row.individualstestedperconfirmedcase:"-") | percent}}  </mat-cell>
+        </ng-container>
+
+        <!-- <ng-container matColumnDef="positivecasesfromsamplesreported">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Positive Cases From Samples Reported </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.positivecasesfromsamplesreported}} </mat-cell>
+        </ng-container> -->
+
+        <ng-container matColumnDef="source">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Source </mat-header-cell>
+            <mat-cell *matCellDef="let row" title="{{row.source}}">
+                <a href= "https://www.icmr.gov.in/pdf/covid/update/ICMR_testing_update_01May2020_9AM_IST.pdf"  target="_blank"> <button mat-mini-fab color="primary">
+                    <mat-icon>picture_as_pdf</mat-icon>
+                  </button></a>
+                  </mat-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="updatetimestamp">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Update <br>Time Stamp </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{(row.updatetimestamp?row.updatetimestamp:"-") }} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="testsperconfirmedcase">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Tests Per<br> Confirmed Case (%) </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{(row.testsperconfirmedcase?row.testsperconfirmedcase:"-") | percent}} </mat-cell>
+        </ng-container>
+
+        <!-- <ng-container matColumnDef="testsconductedbyprivatelabs">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Tests Conducted By Private Labs </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.testsconductedbyprivatelabs}} </mat-cell>
+        </ng-container> -->
+
+        <mat-header-row  
+        *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+        <mat-row  class="element-row" 
+        *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <mat-paginator showFirstLastButtons [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+</div>

@@ -1,0 +1,81 @@
+<div class="main-div">
+    <mat-card>
+        <mat-card-header>   
+            <mat-card-title *ngIf="!this.currentNewsId">
+                <button mat-icon-button matPrefix color="primary" routerLink="/news">
+                    <mat-icon>arrow_back</mat-icon>
+                  </button>  
+                Add News</mat-card-title>
+            <mat-card-title *ngIf="this.currentNewsId">
+                <button mat-icon-button matPrefix color="primary" routerLink="/news">
+                    <mat-icon>arrow_back_ios</mat-icon>
+                  </button>  
+                  Edit News
+                </mat-card-title>
+        </mat-card-header>
+        <mat-card-content style="width: 100%;" >
+            <form [formGroup]="newsForm" (ngSubmit)="addNews(newsForm.value)">
+                <div>
+                    <p>
+                        <mat-form-field style="width: 80%;" class="field-container" hintLabel="Min 15 characters">
+                            <mat-label>Title</mat-label>
+                            <input matInput #title placeholder="title" formControlName="title" maxlength="100" required>
+                            <mat-hint align="end">{{title.value?.length || 0}}/100</mat-hint>
+
+                        </mat-form-field>
+                    </p>
+                    <div  style=" padding-top: 0px; padding-bottom: 5px;" *ngIf="newsForm.get('title').touched && newsForm.get('title').invalid">
+                       <mat-error *ngIf="newsForm.get('title').errors?.required">Title Required!</mat-error>
+                        <mat-error *ngIf="newsForm.get('title').errors?.minlength">Title should be min {{newsForm.get('title').errors.minlength.requiredLength}} characters</mat-error>
+                        <mat-error *ngIf="newsForm.get('title').invalid">Title containes more spaces!</mat-error>
+                    </div>
+                   
+                    <div *ngIf="title.invalid">
+                        Title must be less than 100 characters.
+                   </div> 
+                    <p>
+                        <mat-form-field style="width: 80%;" class="field-container" hintLabel="Min 115 characters">
+                            <mat-label>Description</mat-label>
+                            <textarea matInput #description  placeholder="description"  maxlength="150" formControlName="description"
+                                type="text" rows="4" cols="50" required></textarea>
+                            <mat-hint align="end">{{description.value?.length || 0}}/150</mat-hint>
+                        </mat-form-field>
+                    </p>
+                    <div  style=" padding-top: 0px; padding-bottom: 5px;" *ngIf="newsForm.get('description').touched && newsForm.get('description').invalid">
+                        <mat-error *ngIf="newsForm.get('description').errors?.required">Description Required!</mat-error>
+                        <mat-error *ngIf="newsForm.get('description').errors?.minlength">Description should be min {{newsForm.get('description').errors.minlength.requiredLength}} characters</mat-error>
+                        <mat-error *ngIf="newsForm.get('description').invalid">Description containes more spaces!</mat-error>
+                  
+                    </div>
+
+                    <p>
+                        <mat-form-field style="width: 80%;" class="field-container" hintLabel="Min 200 characters">
+                            <mat-label>Summary</mat-label>
+                            <textarea  matInput #summary placeholder="summary" formControlName="summary" type="text" rows="4" cols="500"
+                            maxlength="1000" required></textarea>
+                            <mat-hint align="end">{{summary.value?.length || 0}}/1000</mat-hint>
+                            <mat-error *ngIf="newsForm.get('summary').invalid">Summary Required!</mat-error>
+                           
+                        </mat-form-field>
+                    </p>
+                    <div  style=" padding-top: 0px; padding-bottom: 5px;" *ngIf="newsForm.get('summary').touched && newsForm.get('summary').invalid">
+                        <mat-error *ngIf="newsForm.get('summary').errors?.required">Summary Required!</mat-error>
+                        <mat-error *ngIf="newsForm.get('summary').errors?.minlength">Summary should be min {{newsForm.get('summary').errors.minlength.requiredLength}} characters</mat-error>
+                        <mat-error *ngIf="newsForm.get('summary').invalid">Summary containes more spaces!</mat-error>
+                  
+                    </div>
+                    <p>
+                         <mat-card-actions>
+                            <button type="submit" mat-raised-button color="accent"
+                                [disabled]="!newsForm.valid" *ngIf="!this.currentNewsId">Add</button>
+                            <button  mat-raised-button color="accent" *ngIf="this.currentNewsId"
+                                [disabled]="!newsForm.valid" (click)="updateNews(newsForm.value)">Update</button>
+                            <button type="button"  mat-raised-button color="accent" (click)="resetForm()"
+                                [disabled]="!newsForm.valid" *ngIf="!this.currentNewsId">Reset</button>
+                        </mat-card-actions>
+                    </p>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

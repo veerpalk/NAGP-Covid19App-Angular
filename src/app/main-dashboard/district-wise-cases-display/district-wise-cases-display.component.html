@@ -1,0 +1,69 @@
+
+<div  >
+
+    <div class="custom-header">
+        <span ><button class="back" mat-icon-button matPrefix color="primary" routerLink="/dashboard">
+            <mat-icon>arrow_back</mat-icon>
+          </button> </span>
+       <span class="state">{{currentState}}</span>
+    </div>
+   
+    <div class="custom-filter-header">
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
+        </mat-form-field>
+    </div>
+    
+        <mat-table #table [dataSource]="dataSource" matSort>
+
+            <ng-container matColumnDef="districtName">
+                <mat-header-cell *matHeaderCellDef mat-sort-header > District Name </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.districtName}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="confirmed">
+                <mat-header-cell *matHeaderCellDef mat-sort-header > Confirmed </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.confirmed}} </mat-cell>
+            </ng-container>
+         
+            <ng-container matColumnDef="active">
+                <mat-header-cell *matHeaderCellDef mat-sort-header > Active </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.active}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="deceased">
+                <mat-header-cell *matHeaderCellDef mat-sort-header > Deceased </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.deceased}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="recovered">
+                <mat-header-cell *matHeaderCellDef mat-sort-header > Recovered </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.recovered}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="deltaConfirmed">
+                <mat-header-cell *matHeaderCellDef mat-sort-header > Delta Confirmed (%)</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.delta.confirmed | percent}}  </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="deltaDeceased">
+                <mat-header-cell *matHeaderCellDef mat-sort-header > Delta Deceased (%) </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.delta.deceased | percent}}  </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="deltaRecovered">
+                <mat-header-cell *matHeaderCellDef mat-sort-header > Delta Recovered (%) </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.delta.recovered | percent}} </mat-cell>
+            </ng-container>
+    
+           
+            <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+            <mat-row  class="element-row" 
+            *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+    
+        <mat-paginator 
+        showFirstLastButtons [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    
+    </div>
+

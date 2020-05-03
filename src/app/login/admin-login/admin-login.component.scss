@@ -1,0 +1,30 @@
+
+mat-card-title {
+    color:desaturate($color:#082c55, $amount: 0);
+    font-size: 24px;
+}
+
+mat-card-header{
+    padding: 3px;
+    border-bottom: 2px solid desaturate($color: #082c55, $amount: 0);
+}
+
+mat-form-field {
+    padding-bottom: -5px;
+}
+
+.field-container {
+    margin: 0.5em;
+}
+mat-card-actions{
+    color: green($color: #000000)
+
+}
+mat-error{
+    font-size: 10px;
+}
+.custom-form{
+    padding: 80px;
+    align-self: center;
+}
+

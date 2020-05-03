@@ -1,0 +1,49 @@
+<div  class="container ">
+<mat-card style="width: 60%;margin-left: 20%; margin-top: 140px; box-shadow: 3px 3px 5px 6px #ccc;">
+    <mat-card-header style="text-align: center;">
+      <mat-card-title>Admin Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content style="width: 100%;" >
+      <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+        
+            <div ><mat-icon>account_circle</mat-icon>
+            <mat-form-field style="width: 50%;" class="field-container">
+            <input matInput 
+            placeholder="User Name" 
+            formControlName="username" 
+            required>
+            <mat-error *ngIf="loginForm.get('username').invalid">UserName Required!</mat-error>
+            </mat-form-field>
+            <div *ngIf="username.touched && username.invalid">
+                <mat-error *ngIf="username.errors.minlength">Username should be min {{username.errors.minlength.requiredLength}} characters</mat-error>
+                <mat-error *ngIf="username.errors.cannotContainSpace">Username cannot contain space</mat-error>
+            </div>
+
+           </div>
+           
+            <div ><mat-icon>vpn_key</mat-icon>
+            <mat-form-field style="width: 50%;" class="field-container" >
+            <input matInput 
+            placeholder="Password" 
+            formControlName="password" 
+            type="{{passwordType}}" 
+            required>
+            <button mat-icon-button matSuffix
+            (click)="changeType()">
+            <mat-icon>{{passwordType=="password"?"visibility_off":"visibility"}}</mat-icon>
+        </button>
+            <mat-error *ngIf="loginForm.get('password').invalid">Pass Required!</mat-error>
+            </mat-form-field>
+            </div>
+        <mat-card-actions>
+                    <button type="submit" mat-raised-button color="primary" [disabled]="!loginForm.valid">Login</button>
+                    <button type="button" mat-raised-button color="primary" (click)="resetForm()" [disabled]="!loginForm.valid">Reset</button>
+        </mat-card-actions>
+            <mat-error *ngIf="loginForm.errors"> Username or Password is invalid.</mat-error>
+       
+    </form>
+    </mat-card-content>
+</mat-card>
+</div>
+
+
